@@ -11,7 +11,7 @@
 
 setMethod(f = "confint",
           signature = "squadP",
-          definition = function(object, parm, level = .95) {
+          definition = function(object, parm, level = .95, R = 1000, method = "wald") {
             if (!is.numeric(x = level)) {
               stop("\"level\" must be a numeric value")
             }
@@ -20,24 +20,45 @@ setMethod(f = "confint",
               stop("single numeric value for \"level\" expected")          
             }
             
+            else if (!is.character(x = method)) {
+              stop("\"method\" must be a character string")     
+            }
+                    
+            else if (length(x = method) != 1L) {
+              stop("single character string for \"method\" expected")
+            }
+            
+            else if (!(method %in% c("bca", "wald"))) {
+              stop("\"method\" is misspecified. Currently available confidence interval estimation procedures are: \"bca\" and \"wald\"")
+            }
+            
             else {
               cf <- coef(object)
               pnames <- names(cf)
               if (missing(parm)) { 
                 parm <- pnames
               }
-              
               else if (is.numeric(parm)) { 
                 parm <- pnames[parm]
               }
-              y <- object@y
-              x <- object@x
               alpha <- (1 - level) / 2
-              p <- c(alpha, 1 - alpha)
-              q <- qnorm(p = p)
+              p <- c(alpha, 1 - alpha)                     
               ci <- array(data = NA, dim = c(length(parm), 2L), dimnames = list(parm, paste(x = format(x = 100 * p, digits = 3, scientific = FALSE, trim = TRUE), "%", sep = "")))
-              se <- sqrt(diag(solve(hess(cf, y, x))))[parm]
-              ci[] <- cf[parm] + se %o% q
+        
+              if (method == "bca") {
+                f <- function(formula, data, parm, indices) {
+                  dat <- data[indices,]
+                  fit <- squadP(formula = formula, data = dat)
+                  return(coef(fit)[parm])
+                }
+                b <- boot::boot(data = object@data, statistic = f, R = R, formula = object@formula, parm = parm)
+                ci[] <- matrix(unlist(lapply(1:ncol(b$t), function(i) {boot::boot.ci(b, conf = level, type = "bca", index = i)$bca[4:5]})), ncol = 2, byrow = TRUE)
+              }              
+              
+              if (method == "wald") {
+                se <- sqrt(diag(solve(hess(cf, object@y, object@x))))[parm]
+                ci[] <- cf[parm] + se %o% qnorm(p)
+              }
               return(ci)
             }
           }
