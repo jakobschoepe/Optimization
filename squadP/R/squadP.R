@@ -6,7 +6,7 @@
 #' @details 
 #' @return An object of S4 class \code{"squadP"} containing the following slots:
 #' \item{call}{}
-#' \item{coefficients}{A numerical vector containing the estimated coefficients of the log-binomial model.}
+#' \item{coefficients}{A numeric vector containing the estimated coefficients of the log-binomial model.}
 #' \item{iter}{A positive integer indicating the number of iterations.}
 #' \item{converged}{A logical constant that indicates whether the log-binomial model has converged.}
 #' \item{y}{A numerical vector containing the dependent variable of the log-binomial model.}
