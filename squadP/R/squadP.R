@@ -6,11 +6,13 @@
 #' @details 
 #' @return An object of S4 class \code{"squadP"} containing the following slots:
 #' \item{call}{}
+#' \item{formula}{An object of class \code{"formula"}.}
 #' \item{coefficients}{A numeric vector containing the estimated coefficients of the log-binomial model.}
 #' \item{iter}{A positive integer indicating the number of iterations.}
 #' \item{converged}{A logical constant that indicates whether the log-binomial model has converged.}
 #' \item{y}{A numerical vector containing the dependent variable of the log-binomial model.}
 #' \item{x}{The model matrix of the log-binomial model.}
+#' \item{data}{A data frame containing the variables in the model.}
 #' @references Work in progress.
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
@@ -41,7 +43,7 @@ squadP <- function(formula, data) {
       theta <- fit$solution
       names(theta) <- colnames(x)
     }
-    return(new(Class = "squadP", call = call, coefficients = theta, iter = iter, converged = converged, y = y, x = x))
+    return(new(Class = "squadP", call = call, formula = formula, coefficients = theta, iter = iter, converged = converged, y = y, x = x, data = data))
   }
 }
 
