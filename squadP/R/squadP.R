@@ -1,5 +1,6 @@
 #' @title Fitting a log-binomial model using constrained non-linear optimization
 #' @description \code{squadP} fits a log-binomial model using constrained non-linear optimization.
+#' @usage squadP(formula, data)
 #' @param formula An object of class \code{"formula"} (or one that can be coerced to that class): a symbolic description of the model to be fitted. 
 #' @param data A data frame containing the variables in the model.
 #' @details 
