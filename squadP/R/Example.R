@@ -1,0 +1,6 @@
+sapply(list.files(pattern = "*.R"), source, .GlobalEnv)
+myDF <- data.frame(y = sample(c("no", "yes"), size = 150, replace = TRUE, prob = c(0.90, 0.10)), x1 = rnorm(150))
+fit <- squadP(formula = y ~ x1, data = myDF)
+summary(fit)
+coef(fit)
+confint(fit, level = .99)
