@@ -1,12 +1,12 @@
 #' @title Summarizing the estimated model parameters of the log-binomial model fitted by \code{squadP}
-#' @description For objects of class \code{"squadP"}, \code{summary} summarizes the estimated model parameters of the log-binomial model fitted by \code{squadP}.
+#' @description For objects of class \code{"squadP"}, \code{summary} summarizes the estimated model parameters of the fitted log-binomial model.
 #' @param object An object of class \code{"squadP"}.
 #' @details \code{summary} .
 #' @return A list containing the following elements:
-#' \item{coefficients}{A numeric vector containing the estimated coefficients of the log-binomial model.}
-#' \item{std.err}{A numeric vector containing the estimated standard errors of the coefficients of the log-binomial model.}
-#' \item{z.value}{A numeric vector containing the estimated z test statistic of the coefficients of the log-binomial model.}
-#' \item{p.value}{A numeric vector containing the estimated p values of the coefficients of the log-binomial model.}
+#' \item{coefficients}{A numeric vector containing the estimated model parameters of the log-binomial model.}
+#' \item{std.err}{A numeric vector containing the estimated standard errors of the model parameters of the log-binomial model.}
+#' \item{z.value}{A numeric vector containing the estimated z test statistic of the model parameters of the log-binomial model.}
+#' \item{p.value}{A numeric vector containing the estimated p values of the model parameters of the log-binomial model.}
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
@@ -15,9 +15,7 @@ setMethod(f = "summary",
           definition = function(object) {
             cf <- coef(object)
             ci <- confint(object)
-            x <- object@x
-            y <- object@y
-            se <- sqrt(diag(solve(hess(cf, y, x))))
+            se <- sqrt(diag(solve(hess(cf, object@y, object@x))))
             z <- cf / se
             p <- 2 * pnorm(abs(z), lower.tail = FALSE)
             coef.table <- cbind(as.matrix(cf), as.matrix(se), as.matrix(z), as.matrix(p), as.matrix(exp(cf)), exp(ci))
