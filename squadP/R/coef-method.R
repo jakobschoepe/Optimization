@@ -1,4 +1,4 @@
-#' @title Extracting the estimated model parameters of the fitted log-binomial model
+#' @title Extracting the estimated model parameters of the log-binomial model fitted by \code{squadP}
 #' @description For objects of class \code{"squadP"}, \code{coef} extracts the estimated model parameters of the fitted log-binomial model.
 #' @param object An object of class \code{"squadP"}.
 #' @return A real vector giving the estimated model parameters.
