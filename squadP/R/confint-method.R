@@ -1,9 +1,11 @@
-#' @title Estimating confidence intervals of the estimated model parameters of the log-binomial model
-#' @description For objects of class \code{"squadP"}, \code{confint} estimates confidence intervals of the estimated model parameters of the log-binomial model.
+#' @title Estimating confidence intervals of the estimated coefficients of the log-binomial model
+#' @description For objects of class \code{"squadP"}, \code{confint} estimates confidence intervals of the estimated coefficients of the log-binomial model.
 #' @param object An object of class \code{"squadP"}.
 #' @param parm A specification of which parameters are to be given confidence intervals, either a vector of numbers or a vector of names. If missing, all parameters are considered.
-#' @param level A numeric value giving the level of confidence.
-#' @details \code{confint} provides Wald confidence intervals of the estimated model parameter of the log-binomial model fitted by \code{squadP}.
+#' @param level A numeric value giving the level of confidence \code{level = .95} (default)).
+#' @param method A character giving the estimation method of the confidence intervals (\code{"bca"} or \code{"wald"} (default)).
+#' @param R A positive integer giving the number of bootstrap replicates (\code{R = 1000L} (default)).
+#' @details \code{confint} provides Wald and bias-corrected accelerated bootstrap confidence intervals of the estimated coefficients of the log-binomial model fitted by \code{squadP}.
 #' @return A matrix with columns giving the lower and upper confidence limits of each estimated model parameter.
 #' @references 
 #' @author Adam Bekhit, Jakob Schöpe
