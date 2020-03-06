@@ -11,20 +11,20 @@
 
 setMethod(f = "confint",
           signature = "squadP",
-          definition = function(object, parm, level = .95, R = 1000, method = "wald") {
-            if (!is.numeric(x = level)) {
+          definition = function(object, parm, level = .95, method = "wald", R = 1000L) {
+            if (!is.numeric(level)) {
               stop("\"level\" must be a numeric value")
             }
             
-            else if (length(x = level) != 1L) {       
+            else if (length(level) != 1L) {       
               stop("single numeric value for \"level\" expected")          
             }
             
-            else if (!is.character(x = method)) {
+            else if (!is.character(method)) {
               stop("\"method\" must be a character string")     
             }
                     
-            else if (length(x = method) != 1L) {
+            else if (length(method) != 1L) {
               stop("single character string for \"method\" expected")
             }
             
@@ -32,6 +32,18 @@ setMethod(f = "confint",
               stop("\"method\" is misspecified. Currently available confidence interval estimation procedures are: \"bca\" and \"wald\"")
             }
             
+            else if (!is.integer(R)) {
+              stop("\"R\" must be a positive integer")
+            }
+  
+            else if (length(R) != 1L) {
+              stop("single positive integer for \"R\" expected")
+            }
+  
+            else if (R < 1000L) {
+              stop("\"R\" must be a positive integer equal to or greater than 1000")
+            }
+                    
             else {
               cf <- coef(object)
               pnames <- names(cf)
