@@ -17,7 +17,7 @@
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
-squadP <- function(formula, data) {
+squadP <- function(formula, data, maxit = 200L) {
   call <- match.call()
   if (!inherits(x = formula, what = "formula")) {
     stop("\"formula\" must be of class \"formula\"")
@@ -34,7 +34,7 @@ squadP <- function(formula, data) {
     converged <- FALSE
     iter <- 0
   
-    while(isFALSE(converged)) {
+    while(isFALSE(converged) | iter < maxit) {
       iter <- iter + 1
       Dmat <- Matrix::nearPD(hess(theta, y, x))$mat
       dvec <- gradF(theta, y, x) + t(theta) %*% Dmat
