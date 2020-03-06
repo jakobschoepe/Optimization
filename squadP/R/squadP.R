@@ -35,7 +35,7 @@ squadP <- function(formula, data, maxit = 200L) {
     converged <- FALSE
     iter <- 0
   
-    while(isFALSE(converged) | iter < maxit) {
+    while(isFALSE(converged) | iter <= maxit) {
       iter <- iter + 1
       Dmat <- Matrix::nearPD(hess(theta, y, x))$mat
       dvec <- gradF(theta, y, x) + t(theta) %*% Dmat
@@ -43,6 +43,9 @@ squadP <- function(formula, data, maxit = 200L) {
       converged <- all(abs(fit$solution - theta) < 1e-4)
       theta <- fit$solution
       names(theta) <- colnames(x)
+    }
+    if (iter == maxit & converged == FALSE) {
+      stop("Maximum number of iterations reached without convergence")
     }
     return(new(Class = "squadP", call = call, formula = formula, coefficients = theta, iter = iter, converged = converged, y = y, x = x, data = data))
   }
