@@ -6,7 +6,7 @@
 #' @param maxit A positive integer giving the maximum number of iterations. 
 #' @details 
 #' @return An object of S4 class \code{"squadP"} containing the following slots:
-#' \item{call}{}
+#' \item{call}{An object of class \code{"call"}.}
 #' \item{formula}{An object of class \code{"formula"}.}
 #' \item{coefficients}{A numeric vector containing the estimated coefficients of the log-binomial model.}
 #' \item{iter}{A positive integer indicating the number of iterations.}
