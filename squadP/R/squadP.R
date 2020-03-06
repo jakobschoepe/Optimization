@@ -35,7 +35,7 @@ squadP <- function(formula, data, maxit = 200L) {
     converged <- FALSE
     iter <- 0
   
-    while(isFALSE(converged) | iter <= maxit) {
+    while(isFALSE(converged) & iter <= maxit) {
       iter <- iter + 1
       Dmat <- Matrix::nearPD(hess(theta, y, x))$mat
       dvec <- gradF(theta, y, x) + t(theta) %*% Dmat
