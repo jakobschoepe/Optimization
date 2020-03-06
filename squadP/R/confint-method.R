@@ -1,4 +1,4 @@
-#' @title Estimating confidence intervals of the estimated model parameters of the log-binomial model
+#' @title Estimating confidence intervals of the estimated model parameters of the log-binomial model fitted by \code{"squadP"}
 #' @description For objects of class \code{"squadP"}, \code{confint} estimates confidence intervals of the estimated model parameters of the log-binomial model.
 #' @param object An object of class \code{"squadP"}.
 #' @param parm A specification of which model parameters are to be given confidence intervals, either a vector of numbers or a vector of names. If missing, all model parameters are considered.
