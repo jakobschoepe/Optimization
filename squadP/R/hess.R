@@ -1,12 +1,10 @@
-#' @title .
-#' @description \code{hess} .
+#' @title Computing the Hessian matrix of the log-binomial model fitted by \code{squadP}
+#' @description \code{hess} is a helper function for \code{squadP} to compute the Hessian matrix of the log-binomial model.
 #' @usage hess(theta, y, x)
 #' @param theta 
-#' @param y 
-#' @param x 
-#' @details 
-#' @return 
-#' @references Work in progress.
+#' @param y A numeric vector containing the dependent variable of the log-binomial model.
+#' @param x The model matrix of the log-binomial model.
+#' @return The Hessian matrix of the log-binomial model fitted by \code{squadP}.
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
