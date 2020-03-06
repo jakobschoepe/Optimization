@@ -24,6 +24,14 @@ squadP <- function(formula, data, maxit = 200L) {
     stop("\"formula\" must be of class \"formula\"")
   }
   
+  else if (!is.integer(maxit)) {
+    stop("\"maxit\" must be a positive integer")
+  }
+  
+  else if (length(maxit) != 1L) {
+    stop("single positive integer for \"maxit\" expected")
+  }
+  
   else {
     data <- model.frame(formula = formula, data = data)
     y <- unname(model.matrix(as.formula(paste("~", all.vars(formula)[1])), data = data)[,-1])
