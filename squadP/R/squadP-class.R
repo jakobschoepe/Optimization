@@ -1,5 +1,5 @@
 #' @title S4 Class \code{"squadP"}
-#' @slot call .
+#' @slot call An object of class \code{"call"}.
 #' @slot formula An object of class \code{"formula"}.
 #' @slot coefficients A numeric vector containing the estimated model parameters of the log-binomial model.
 #' @slot iter A positive integer indicating the number of iterations.
