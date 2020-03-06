@@ -1,10 +1,8 @@
-#' @title .
-#' @description \code{constr} .
+#' @title Setting the constraints for constrained non-linear optimization in \code{squadP}
+#' @description \code{constr} sets the constraints for constrained non-linear optimization in \code{squadP}.
 #' @usage constr(x)
-#' @param x 
-#' @details 
-#' @return 
-#' @references Work in progress.
+#' @param x A model matrix.
+#' @return A matrix containing the constraints for constrained non-linear optimization in \code{squadP}.
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
