@@ -3,6 +3,7 @@
 #' @usage squadP(formula, data)
 #' @param formula An object of class \code{"formula"} (or one that can be coerced to that class): a symbolic description of the model to be fitted. 
 #' @param data A data frame containing the variables in the model.
+#' @param maxit A positive integer giving the maximum number of iterations. 
 #' @details 
 #' @return An object of S4 class \code{"squadP"} containing the following slots:
 #' \item{call}{}
