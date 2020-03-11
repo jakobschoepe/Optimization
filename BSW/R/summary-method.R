@@ -18,7 +18,7 @@ setMethod(f = "summary",
             ci <- confint(object)
             se <- sqrt(diag(solve(hess(cf, object@y, object@x))))
             z <- cf / se
-            p <- 2 * pnorm(abs(z), lower.tail = FALSE)
+            p <- 2 * stats::pnorm(abs(z), lower.tail = FALSE)
             coef.table <- cbind(as.matrix(cf), as.matrix(se), as.matrix(z), as.matrix(p), as.matrix(exp(cf)), exp(ci))
             colnames(coef.table) <- c("Estimate", "Std. Error", "z value", "Pr(>|z|)", "RR", colnames(ci))
             
