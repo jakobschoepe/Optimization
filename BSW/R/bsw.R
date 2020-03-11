@@ -34,9 +34,9 @@ bsw <- function(formula, data, maxit = 200L) {
   }
   
   else {
-    data <- model.frame(formula = formula, data = data)
-    y <- unname(model.matrix(as.formula(paste("~", all.vars(formula)[1])), data = data)[,-1])
-    x <- model.matrix(object = formula, data = data)
+    data <- stats::model.frame(formula = formula, data = data)
+    y <- unname(stats::model.matrix(stats::as.formula(paste("~", all.vars(formula)[1])), data = data)[,-1])
+    x <- stats::model.matrix(object = formula, data = data)
     theta <- c(log(mean(y)), rep(0, times = ncol(x) - 1))
     Amat <- constr(x)
     bvec <- rep(0, times = nrow(Amat))
