@@ -1,5 +1,6 @@
 #' @title Summarizing the estimated model parameters of \code{bsw}
 #' @description For objects of class \code{"bsw"}, \code{summary} summarizes the estimated model parameters of \code{"bsw"}.
+#' @usage summary(object)
 #' @param object An object of class \code{"bsw"}.
 #' @details \code{summary} .
 #' @return A list containing the following elements:
