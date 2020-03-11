@@ -19,7 +19,7 @@
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
-squadP <- function(formula, data, maxit = 200L) {
+bsw <- function(formula, data, maxit = 200L) {
   call <- match.call()
   if (!inherits(x = formula, what = "formula")) {
     stop("\"formula\" must be of class \"formula\"")
@@ -60,7 +60,7 @@ squadP <- function(formula, data, maxit = 200L) {
     if (iter == maxit & converged == FALSE) {
       stop("Maximum number of iterations reached without convergence")
     }
-    return(new(Class = "squadP", call = call, formula = formula, coefficients = theta, iter = iter, converged = converged, y = y, x = x, data = data))
+    return(new(Class = "bsw", call = call, formula = formula, coefficients = theta, iter = iter, converged = converged, y = y, x = x, data = data))
   }
 }
 
