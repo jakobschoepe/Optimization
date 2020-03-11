@@ -4,15 +4,15 @@
 #' @param formula An object of class \code{"formula"} (or one that can be coerced to that class): a symbolic description of the model to be fitted. 
 #' @param data A data frame containing the variables in the model.
 #' @param maxit A positive integer giving the maximum number of iterations. 
-#' @details 
-#' @return An object of S4 class \code{"squadP"} containing the following slots:
+#' @details \code{"bsw"} 
+#' @return An object of S4 class \code{"bsw"} containing the following slots:
 #' \item{call}{An object of class \code{"call"}.}
 #' \item{formula}{An object of class \code{"formula"}.}
-#' \item{coefficients}{A numeric vector containing the estimated coefficients of the log-binomial model.}
+#' \item{coefficients}{A numeric vector containing the estimated model parameters.}
 #' \item{iter}{A positive integer indicating the number of iterations.}
-#' \item{converged}{A logical constant that indicates whether the log-binomial model has converged.}
-#' \item{y}{A numerical vector containing the dependent variable of the log-binomial model.}
-#' \item{x}{The model matrix of the log-binomial model.}
+#' \item{converged}{A logical constant that indicates whether the model has converged.}
+#' \item{y}{A numerical vector containing the dependent variable of the model.}
+#' \item{x}{The model matrix.}
 #' \item{data}{A data frame containing the variables in the model.}
 #' @references Wagenpfeil S (1996) Dynamische Modelle zur Ereignisanalyse. Herbert Utz Verlag Wissenschaft, Munich, Germany
 #' Wagenpfeil S (1991) Implementierung eines SQP-Verfahrens mit dem Algorithmus von Ritter und Best. 
@@ -36,9 +36,13 @@ squadP <- function(formula, data, maxit = 200L) {
   else {
     data <- model.frame(formula = formula, data = data)
     y <- unname(model.matrix(as.formula(paste("~", all.vars(formula)[1])), data = data)[,-1])
+    
+    if (var(y) == 0) {
+      stop(all.vars(formula)[1], "has zero variance")
+    }
+    
     x <- model.matrix(object = formula, data = data)
-    ymean <- ifelse(mean(y) <= 0, 0.01, mean(y))
-    theta <- c(log(ymean), rep(0, times = ncol(x) - 1))
+    theta <- c(log(mean(y)), rep(0, times = ncol(x) - 1))
     Amat <- constr(x)
     bvec <- rep(0, times = nrow(Amat))
     converged <- FALSE
