@@ -55,7 +55,7 @@ bsw <- function(formula, data, maxit = 200L) {
     if (iter == maxit & converged == FALSE) {
       stop("Maximum number of iterations reached without convergence")
     }
-    return(new(Class = "bsw", call = call, formula = formula, coefficients = theta, iter = iter, converged = converged, y = y, x = x, data = data))
+    return(methods::new(Class = "bsw", call = call, formula = formula, coefficients = theta, iter = iter, converged = converged, y = y, x = x, data = data))
   }
 }
 
