@@ -1,13 +1,14 @@
 #' @title Estimating confidence intervals of the estimated model parameters of \code{"bsw"}
 #' @description For objects of class \code{"bsw"}, \code{confint} estimates confidence intervals of the estimated model parameters of \code{"bsw"}.
-#' @usage confint(object, parm, level = .95, method = "wald", R = 1000L)
 #' @param object An object of class \code{"bsw"}.
 #' @param parm A specification of which model parameters are to be given confidence intervals, either a vector of numbers or a vector of names. If missing, all model parameters are considered.
 #' @param level A numeric value giving the level of confidence (\code{level = .95} (default)).
 #' @param method A character giving the estimation method of the confidence intervals (\code{"bca"} or \code{"wald"} (default)).
 #' @param R A positive integer giving the number of bootstrap replicates (\code{R = 1000L} (default)).
+#' @param ... other arguments (currently not used).
 #' @details \code{confint} provides Wald and bias-corrected accelerated bootstrap confidence intervals of the estimated model parameters of \code{bsw}.
 #' @return A matrix with columns giving the lower and upper confidence limits of each estimated model parameter.
+#' @aliases confint,bsw-method
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
