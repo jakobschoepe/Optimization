@@ -18,6 +18,12 @@
 #'
 #' Wagenpfeil S (1991) Implementierung eines SQP-Verfahrens mit dem Algorithmus von Ritter und Best. Diplomarbeit, TU Munich, Germany 
 #' @author Adam Bekhit, Jakob Schöpe
+#' @example
+#' set.seed(123)
+#' x <- rnorm(100, 50, 10)
+#' y <- rbinom(100, 1, exp(-4 + x * 0.04)) 
+#' fit <- bsw(formula = y ~ x, data = data.frame(y = y, x = x))
+#' summary(fit)
 #' @export
 
 bsw <- function(formula, data, maxit = 200L) {
