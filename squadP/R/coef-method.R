@@ -6,7 +6,7 @@
 #' @export
 
 setMethod(f = "coef",
-          signature = "squadP",
+          signature = "bsw",
           definition = function(object) {
             return(object@coefficients)
           }
