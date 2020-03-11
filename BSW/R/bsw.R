@@ -1,6 +1,6 @@
 #' @title Fitting a log-binomial model using the Bekhit-Schöpe-Wagenpfeil (BSW) algorithm 
 #' @description \code{bsw} fits a log-binomial model using a modified Newton-type algorithm (BSW algorithm) for solving the maximum likelihood estimation problem under linear inequality constraints.
-#' @usage bsw(formula, data)
+#' @usage bsw(formula, data, maxit = 200L)
 #' @param formula An object of class \code{"formula"} (or one that can be coerced to that class): a symbolic description of the model to be fitted. 
 #' @param data A data frame containing the variables in the model.
 #' @param maxit A positive integer giving the maximum number of iterations. 
