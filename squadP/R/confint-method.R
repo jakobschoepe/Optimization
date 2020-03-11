@@ -1,17 +1,17 @@
-#' @title Estimating confidence intervals of the estimated model parameters of the log-binomial model fitted by \code{"squadP"}
-#' @description For objects of class \code{"squadP"}, \code{confint} estimates confidence intervals of the estimated model parameters of the log-binomial model.
-#' @param object An object of class \code{"squadP"}.
+#' @title Estimating confidence intervals of the estimated model parameters of \code{"bsw"}
+#' @description For objects of class \code{"bsw"}, \code{confint} estimates confidence intervals of the estimated model parameters of \code{"bsw"}.
+#' @param object An object of class \code{"bsw"}.
 #' @param parm A specification of which model parameters are to be given confidence intervals, either a vector of numbers or a vector of names. If missing, all model parameters are considered.
 #' @param level A numeric value giving the level of confidence (\code{level = .95} (default)).
 #' @param method A character giving the estimation method of the confidence intervals (\code{"bca"} or \code{"wald"} (default)).
 #' @param R A positive integer giving the number of bootstrap replicates (\code{R = 1000L} (default)).
-#' @details \code{confint} provides Wald and bias-corrected accelerated bootstrap confidence intervals of the estimated model parameters of the log-binomial model fitted by \code{squadP}.
+#' @details \code{confint} provides Wald and bias-corrected accelerated bootstrap confidence intervals of the estimated model parameters of \code{bsw}.
 #' @return A matrix with columns giving the lower and upper confidence limits of each estimated model parameter.
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
 setMethod(f = "confint",
-          signature = "squadP",
+          signature = "bsw",
           definition = function(object, parm, level = .95, method = "wald", R = 1000L) {
             if (!is.numeric(level)) {
               stop("\"level\" must be a numeric value")
