@@ -1,5 +1,6 @@
 #' @title Estimating confidence intervals of the estimated model parameters of \code{"bsw"}
 #' @description For objects of class \code{"bsw"}, \code{confint} estimates confidence intervals of the estimated model parameters of \code{"bsw"}.
+#' @usage confint(object, parm, level = .95, method = "wald", R = 1000L)
 #' @param object An object of class \code{"bsw"}.
 #' @param parm A specification of which model parameters are to be given confidence intervals, either a vector of numbers or a vector of names. If missing, all model parameters are considered.
 #' @param level A numeric value giving the level of confidence (\code{level = .95} (default)).
@@ -61,7 +62,7 @@ setMethod(f = "confint",
               if (method == "bca") {
                 f <- function(formula, data, parm, indices) {
                   dat <- data[indices,]
-                  fit <- squadP(formula = formula, data = dat)
+                  fit <- BSW::bsw(formula = formula, data = dat)
                   return(coef(fit)[parm])
                 }
                 b <- boot::boot(data = object@data, statistic = f, R = R, formula = object@formula, parm = parm)
