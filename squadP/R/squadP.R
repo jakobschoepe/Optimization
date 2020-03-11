@@ -1,6 +1,6 @@
-#' @title Fitting a log-binomial model using constrained non-linear optimization
-#' @description \code{squadP} fits a log-binomial model using constrained non-linear optimization.
-#' @usage squadP(formula, data)
+#' @title Fitting a log-binomial model using the Bekhit-Schöpe-Wagenpfeil (BSW) algorithm 
+#' @description \code{bsw} fits a log-binomial model using a modified Newton-type algorithm (BSW algorithm) for solving the maximum likelihood estimation problem under linear inequality constraints.
+#' @usage bsw(formula, data)
 #' @param formula An object of class \code{"formula"} (or one that can be coerced to that class): a symbolic description of the model to be fitted. 
 #' @param data A data frame containing the variables in the model.
 #' @param maxit A positive integer giving the maximum number of iterations. 
@@ -14,7 +14,8 @@
 #' \item{y}{A numerical vector containing the dependent variable of the log-binomial model.}
 #' \item{x}{The model matrix of the log-binomial model.}
 #' \item{data}{A data frame containing the variables in the model.}
-#' @references Work in progress.
+#' @references Wagenpfeil S (1996) Dynamische Modelle zur Ereignisanalyse. Herbert Utz Verlag Wissenschaft, Munich, Germany
+#' Wagenpfeil S (1991) Implementierung eines SQP-Verfahrens mit dem Algorithmus von Ritter und Best. 
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
