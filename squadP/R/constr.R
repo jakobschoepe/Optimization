@@ -1,8 +1,8 @@
-#' @title Setting the constraints for constrained non-linear optimization in \code{squadP}
-#' @description \code{constr} sets the constraints for constrained non-linear optimization in \code{squadP}.
+#' @title Setting the linear inequality constraints for \code{bsw}
+#' @description \code{constr} sets the linear inequality constraints for \code{bsw}.
 #' @usage constr(x)
 #' @param x A model matrix.
-#' @return A matrix containing the constraints for constrained non-linear optimization in \code{squadP}.
+#' @return A matrix containing the linear inequality constraints for \code{bsw}.
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
