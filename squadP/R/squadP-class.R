@@ -1,4 +1,4 @@
-#' @title S4 Class \code{"squadP"}
+#' @title S4 Class \code{"bsw"}
 #' @slot call An object of class \code{"call"}.
 #' @slot formula An object of class \code{"formula"}.
 #' @slot coefficients A numeric vector containing the estimated model parameters of the log-binomial model.
@@ -11,4 +11,4 @@
 #' @import Matrix matrixStats quadprog
 #' @export
 
-setClass(Class = "squadP", slots = c(call = "language", formula = "formula", coefficients = "numeric", iter = "numeric", converged = "logical", y = "numeric", x = "matrix", data = "data.frame"))
+setClass(Class = "bsw", slots = c(call = "language", formula = "formula", coefficients = "numeric", iter = "numeric", converged = "logical", y = "numeric", x = "matrix", data = "data.frame"))
