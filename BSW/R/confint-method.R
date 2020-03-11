@@ -62,7 +62,7 @@ setMethod(f = "confint",
               if (method == "bca") {
                 f <- function(formula, data, parm, indices) {
                   dat <- data[indices,]
-                  fit <- BSW::bsw(formula = formula, data = dat)
+                  fit <- bsw(formula = formula, data = dat)
                   return(coef(fit)[parm])
                 }
                 b <- boot::boot(data = object@data, statistic = f, R = R, formula = object@formula, parm = parm)
@@ -71,7 +71,7 @@ setMethod(f = "confint",
               
               if (method == "wald") {
                 se <- sqrt(diag(solve(hess(cf, object@y, object@x))))[parm]
-                ci[] <- cf[parm] + se %o% qnorm(p)
+                ci[] <- cf[parm] + se %o% stats::qnorm(p)
               }
               return(ci)
             }
