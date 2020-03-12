@@ -15,7 +15,7 @@
 #' \item{data}{A data frame containing the variables in the model.}
 #' @references Wagenpfeil S (1996) Dynamische Modelle zur Ereignisanalyse. Herbert Utz Verlag Wissenschaft, Munich, Germany
 #'
-#' Wagenpfeil S (1991) Implementierung eines SQP-Verfahrens mit dem Algorithmus von Ritter und Best. Diplomarbeit, TU Munich, Germany 
+#' Wagenpfeil S (1991) Implementierung eines SQP-Verfahrens mit dem Algorithmus von Ritter und Best. Diplomarbeit, TUM, Munich, Germany 
 #' @author Adam Bekhit, Jakob Schöpe
 #' @examples
 #' set.seed(123)
