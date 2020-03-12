@@ -1,10 +1,10 @@
-#' @title Deriving the second partial derivatives of the likelihood function in \code{bsw} (Hessian matrix)
-#' @description \code{hess} is a helper function for \code{bsw} to derive the second partial derivatives of the likelihood function.
+#' @title Deriving the second partial derivatives of the log likelihood function of the bog-binomial model in \code{bsw} (Hessian matrix)
+#' @description \code{hess} derives the second partial derivatives of the log likelihood function of the log-binomial model.
 #' @usage hess(theta, y, x)
-#' @param theta A numeric vector containing the model parameters.
+#' @param theta A numeric vector containing the initial values of the model parameters.
 #' @param y A numeric vector containing the dependent variable of the model.
 #' @param x The model matrix.
-#' @return A numeric matrix containing the second partial derivatives of the likelihood function (Hessian matrix).
+#' @return A numeric matrix containing the second partial derivatives of the log likelihood function of the log-binomial model (Hessian matrix).
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
