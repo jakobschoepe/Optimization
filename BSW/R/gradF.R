@@ -1,10 +1,10 @@
-#' @title Deriving the first derivatives of the likelihood function in \code{bsw}
-#' @description \code{gradF} is a helper function for \code{bsw} to derive the first derivatives of the likelihood function.
+#' @title Deriving the first derivatives of the log likelihood function of the log-binomial model in \code{bsw}
+#' @description \code{gradF} derives the first derivatives of the log likelihood function of the log-binomial model.
 #' @usage gradF(theta, y, x)
-#' @param theta A numeric vector containing .
+#' @param theta A numeric vector containing the initial values of the model parameters.
 #' @param y A numeric vector containing the dependent variable of the model.
 #' @param x The model matrix.
-#' @return A numeric vector containing the first derivatives of the likelihood function.
+#' @return A numeric vector containing the first derivatives of the log likelihood function of the log-binomial model.
 #' @author Adam Bekhit, Jakob Schöpe
 #' @export
 
