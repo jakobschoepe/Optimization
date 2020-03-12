@@ -5,7 +5,6 @@
 #' @param level A numeric value that indicates the level of confidence.
 #' @param method A character giving the estimation method of the confidence intervals (\code{"bca"} or \code{"wald"}).
 #' @param R A positive integer giving the number of bootstrap replicates.
-#' @param ... other arguments (currently not used).
 #' @details \code{confint} provides Wald (default) and bias-corrected accelerated bootstrap confidence intervals of the estimated model parameters of \code{bsw}.
 #' @return A matrix with columns giving the lower and upper confidence limits of each estimated model parameter.
 #' @aliases confint,bsw-method
