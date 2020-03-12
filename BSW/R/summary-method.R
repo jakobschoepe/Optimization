@@ -1,7 +1,6 @@
 #' @title Summarizing the estimated model parameters of \code{bsw}
 #' @description For objects of class \code{"bsw"}, \code{summary} summarizes the estimated model parameters of \code{bsw}.
 #' @param object An object of class \code{"bsw"}.
-#' @param ... other arguments (currently not used).
 #' @return A list containing the following elements:
 #' \item{coefficients}{A numeric vector containing the estimated model parameters.}
 #' \item{std.err}{A numeric vector containing the estimated standard errors of the model parameters.}
