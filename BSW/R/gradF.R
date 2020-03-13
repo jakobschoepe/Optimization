@@ -1,5 +1,5 @@
-#' @title Deriving the first derivatives of the log likelihood function of the log-binomial model in \code{bsw}
-#' @description \code{gradF} derives the first derivatives of the log likelihood function of the log-binomial model.
+#' @title Deriving the first derivatives of the log likelihood function of the log-binomial model in \code{bsw()}
+#' @description \code{gradF()} derives the first derivatives of the log likelihood function of the log-binomial model.
 #' @usage gradF(theta, y, x)
 #' @param theta A numeric vector containing the initial values of the model parameters.
 #' @param y A numeric vector containing the dependent variable of the model.
